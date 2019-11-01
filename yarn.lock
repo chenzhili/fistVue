@@ -8906,6 +8906,11 @@ tcp-port-used@^1.0.1:
     debug "4.1.0"
     is2 "2.0.1"
 
+test-czl3@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/test-czl3/-/test-czl3-8.0.0.tgz#94cb2f60a874f63df8c02e22a57f975ffa4af049"
+  integrity sha512-uOOjdwdcwdJeK10LFl53fGGXxiH5nY5AZY91+ctou+ZGUqxrFjPobt+fK38kBrG2vqpW1K2hu1O5hEXjJBgC4g==
+
 test-exclude@^4.2.1:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/test-exclude/-/test-exclude-4.2.3.tgz#a9a5e64474e4398339245a0a769ad7c2f4a97c20"

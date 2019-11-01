@@ -3,16 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// import test from "./plugin"
+import test from "./plugin"
 
-const test = require("test-czl");
+import QLTest from "test-czl3"
 
-
-console.log(test);
+console.log(QLTest);
 
 Vue.config.productionTip = false
 
-// Vue.use(test);
+Vue.use(test);
+Vue.use(QLTest)
 
 /* eslint-disable no-new */
 new Vue({
