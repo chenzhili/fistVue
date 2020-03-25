@@ -26,44 +26,49 @@ Vue.use(Vuex);
 
 const requireModule = require.context("./", true, /.js$/);
 
-console.log(process.env.NODE_ENV);
+// console.log(process.env.NODE_ENV);
 
 const store = ((Vuex) => {
-    const modules = {};
-    const reg = /^\.\/index/, nameReg = /^[\w\W]+?\/([a-zA-Z_]+)\.js$/;
-    let module;
-    let moduleName = '';
-    requireModule.keys().forEach(rc => {
-        moduleName = rc.replace(nameReg, '$1');
-        if (reg.test(rc) === false) {
-            module = requireModule(rc).default;
-            modules[moduleName] = module;
-        }
-    })
-    return new Vuex.Store({
-        // 严格按照 commit 的方法进行 state 的修改，不然会报错
-        strict: process.env.NODE_ENV !== 'production',
-        modules,
-        state: {
-            count: 1
-        },
+  const modules = {};
+  const reg = /^\.\/index/, nameReg = /^[\w\W]+?\/([a-zA-Z_]+)\.js$/;
+  let module;
+  let moduleName = '';
+  requireModule.keys().forEach(rc => {
+    moduleName = rc.replace(nameReg, '$1');
+    if (reg.test(rc) === false) {
+      module = requireModule(rc).default;
+      modules[moduleName] = module;
+    }
+  })
+  return new Vuex.Store({
+    // 严格按照 commit 的方法进行 state 的修改，不然会报错
+    strict: process.env.NODE_ENV !== 'production',
+    modules,
+    state: {
+      count: 1,
+      network: true,
+    },
 
-        // 这个是唯一能够改变 state 状态的 地方
-        mutations: {
-            changeCount(...args) {
-                console.log(args);
-                // console.log(state);
-                // state.count++;
-            }
-        },
+    // 这个是唯一能够改变 state 状态的 地方
+    mutations: {
+      changeNetwork(state, status) {
+        status = status == null ? true : status;
+        state.network = status;
+      },
+      changeCount(...args) {
+        console.log(args);
+        // console.log(state);
+        // state.count++;
+      }
+    },
 
-        // 跟 vue 实例 内的 computed 一样，但是 当他 (state,getters)=>params=>fun 这时候 不会 缓存
-        getters: {},
+    // 跟 vue 实例 内的 computed 一样，但是 当他 (state,getters)=>params=>fun 这时候 不会 缓存
+    getters: {},
 
-        // 这里 做 异步 状态 的请求 和 控制 
-        actions: {},
-        
-    });
+    // 这里 做 异步 状态 的请求 和 控制 
+    actions: {},
+
+  });
 })(Vuex)
 
 /* 
