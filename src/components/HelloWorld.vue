@@ -1,54 +1,44 @@
 <template>
-  <div class="hello">
-    <div @click="showTips">sdfsdfsfsdfsdf</div>
-    <test-vue ref="test"></test-vue>
-    <div><KLineGraphComH5 :dataGraph="dataGraphForK" :config="configForK" height="267px"></KLineGraphComH5></div>
+  <div>
+    <h2 v-for="(key,index) of list" :key="index">{{ key.title }}</h2>
+    <button @click="addToCart">Add To Cart</button>
   </div>
 </template>
-
 <script>
-import {kData} from "../dataJSON"
-
+import { mapState/* , mapMutations, createNamespacedHelpers */ } from 'vuex'
+console.log(mapState(['list']));
 export default {
   name: "HelloWorld",
+  props: ["id"],
   data() {
     return {
-      msg: "Welcome to Your Vue.js App",
-      dataGraphForK:{
-        data:kData
-      },
-      configForK: {
-        insType: "1", //实例的类型，有 timeSharingDiagram: "0",kLineGraph: "1"
-        theme: "light" //主体，有 light , dark
-      }
+     
     };
   },
+  computed: {
+    ...mapState(['list']),
+    item() {
+      return this.$store.state.list.find(item => item.id === this.id);
+    }
+  },
   methods: {
-    showTips() {
-      this.$refs.test.showTips();
+    check() {
+      return true;
+    },
+    addToCart() {
+      // console.log(this.$store.state.list);
+      if (this.check() && this.$store.state.list.length < 3) {
+        this.$store.commit("ADD_TO_CART", this.id);
+      } else {
+        console.log("执行吗");
+        this.$router.push({ name: "About" });
+      }
     }
   },
   mounted() {
-    console.log(this.$refs.test.showTips);
+    // console.log(this);
   }
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style lang="sass" scoped>
 </style>

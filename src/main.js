@@ -1,23 +1,22 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
+import './element';
+import './registerServiceWorker'
+
+import App from './App.vue'
+import './request'
+
 import router from './router'
-import test from "./plugin"
+import store from './store'
 
-import QLTest from "test-czl3"
-
-console.log(QLTest);
+// mixin
+// import reqMixin from './request/reqMixin'
+import './request/reqMixin';
 
 Vue.config.productionTip = false
 
-Vue.use(test);
-Vue.use(QLTest)
-
-/* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  // mixins: [reqMixin],
   router,
-  components: { App },
-  template: '<App/>'
-})
+  store,
+  render: h => h(App)
+}).$mount('#app')
