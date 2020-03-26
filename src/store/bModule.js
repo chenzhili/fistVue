@@ -1,14 +1,15 @@
+import { bModule } from './constJSON'
 export default {
     state:{
         countB:1
     },
     mutations:{
-        increment(state){
+        [bModule.mutations.INCREMENT](state){
             state.countB++;
         }
     },
     actions:{
-        async incrementActionB(context){
+        async [bModule.actions.INCREMENT_ACTION_A](context){
             console.log(context);
         }
     },
