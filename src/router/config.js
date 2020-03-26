@@ -62,6 +62,10 @@
 // 如果 路由的 数据 相对 比较多了 后，就以 单独模块 配置导入的方式
 const config = [
     {
+        keyword: 'login',
+        component: () => import('@/views/Login.vue')
+    },
+    {
         keyword: 'home',
         query: ['id', 'test'],
         async: false,

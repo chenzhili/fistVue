@@ -92,7 +92,9 @@ function recurseRouter(targets, result, root) {
     if (type(target.beforeEnter) === 'function') {
       tempObj.beforeEnter = target.beforeEnter;
     }
-    tempObj.redirect = target.redirect;
+    if (type(target.redirect === 'string')) {
+      tempObj.redirect = target.redirect;
+    }
 
     result.push(tempObj);
   });
@@ -121,6 +123,19 @@ function recurseRouter(targets, result, root) {
 // console.log(routes);
 
 const routesNews = resultRoutes(config);
+
+/* 配置 首次进入 时 匹配的 从定向 */
+routesNews.unshift({
+  path: '*',
+  redirect: '/home/1/1'
+});
+
+/* 断网的刷新页面 */
+routesNews.push({
+  path: '/refresh',
+  name: 'Refresh',
+  component: () => import('@/views/NoNetWork.vue')
+});
 
 console.log(routesNews);
 const router = new VueRouter({

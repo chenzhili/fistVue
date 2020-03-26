@@ -11,6 +11,8 @@ import store from '../store';
 // import { Toast } from 'vant';
 import Vue from 'vue';
 
+import { parents } from '../store/constJSON'
+
 import { errorRequest } from './baseURL'
 
 /* axios 的理解
@@ -49,9 +51,10 @@ const tip = (msg, type) => {
 const toLogin = () => {
     router.replace({
         path: '/login',
-        query: {
+        // 目前不需要重定向上个页面
+        /* query: {
             redirect: router.currentRoute.fullPath
-        }
+        } */
     });
 }
 
@@ -126,7 +129,7 @@ instance.interceptors.response.use(
                 case 'cancel':
                     return Promise.reject(error);
                 case 'error: network error':
-                    store.commit('changeNetwork', false);
+                    store.commit(parents.mutations.CHANGE_NETWORK, false);
                     break;
                 default:
                     console.log('其他错误', error);

@@ -24,7 +24,7 @@ export default {
   methods: {
     // 想要获取到 取消请求的方式 必须以 reqIns 结尾
     cacelGetListReqIns(source) {
-      console.log(source, '执行');
+      // console.log(source, '执行');
       this.$set(this.reqTokenInsConfig, 'cancelGetList', source);
     }
   },
