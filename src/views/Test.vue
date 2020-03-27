@@ -3,7 +3,9 @@
     <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam deleniti distinctio minima cum. Hic quae quisquam repellat tempore ad odit sapiente. Optio enim nisi velit a recusandae expedita, sequi dolores?</div>
     <router-link to="/test/child1">child1</router-link>
     <router-link to="/test/child2">child2</router-link>
-    <router-view></router-view>
+    <ContainerRouter>
+      <router-view></router-view>
+    </ContainerRouter>
   </div>
 </template>
 

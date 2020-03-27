@@ -14,15 +14,23 @@
       </keep-alive>
     </transition>
   </div>-->
-  <div>
+  <div id="app">
+    <div class="refresh" v-if="!network">
+      <h3>我没网了</h3>
+      <el-button type="primary" @click="onRefresh">刷新</el-button>
+    </div>
+
     <router-link to="/home/1/2">Home</router-link>|
     <router-link to="/about">About</router-link>|
     <router-link to="/test">test</router-link>
-    <div class="refresh" v-if="!network">
-      <h3>我没网了</h3>
-      <el-button @click="onRefresh">刷新</el-button>
-    </div>
-    <router-view></router-view>
+    <!-- <transition name="fade" mode="out-in">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </transition> -->
+    <ContainerRouter>
+        <router-view></router-view>
+    </ContainerRouter>
   </div>
 </template>
 <script>

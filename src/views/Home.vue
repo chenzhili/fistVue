@@ -2,6 +2,9 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld id="123" />
+    <ul>
+      <li v-for="(item,key) of list" :key="key">{{item.low}}</li>
+    </ul>
   </div>
 </template>
 
@@ -18,7 +21,8 @@ export default {
   },
   data() {
     return {
-      test: "test"
+      test: "test",
+      list: []
     };
   },
   methods: {
@@ -40,7 +44,9 @@ export default {
         wgtflag: 1
       }
     };
-    this.$http.moduleA.getList(cofnig, this.cacelGetListReqIns);
+    const data = await this.$http.moduleA.getList(cofnig, this.cacelGetListReqIns);
+    this.list = data.data.data.slice(0, 11);
+    console.log(this.list);
   }
 };
 </script>

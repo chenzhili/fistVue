@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import './element-variables.scss'
 import {
     /* Pagination,
     Dialog,
