@@ -1,14 +1,20 @@
 <template>
   <transition name="fade" mode="out-in">
-    <keep-alive>
-      <!-- <router-view></router-view> -->
+    <keep-alive v-if="keepAlive">
       <slot></slot>
     </keep-alive>
+    <slot v-else></slot>
   </transition>
 </template>
 <script>
 export default {
   name: "ContainerRouter",
+  props: {
+    keepAlive: {
+      type: Boolean,
+      default: false
+    }
+  }
 };
 </script>
 <style lang="scss">

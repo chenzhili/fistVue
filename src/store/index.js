@@ -41,6 +41,7 @@ const store = ((Vuex) => {
     // 这个是唯一能够改变 state 状态的 地方
     mutations: {
       [parents.mutations.CHANGE_NETWORK](state, status) {
+        console.log(status);
         status = status == null ? true : status;
         state.network = status;
       },

@@ -3,7 +3,7 @@
   * https://blog.csdn.net/qq_40128367/article/details/82735310
   * 请求拦截、响应拦截、错误统一处理
   */
- 
+
 import axios from 'axios';
 import router from '../router';
 import store from '../store';
@@ -41,7 +41,7 @@ const tip = (msg, type) => {
         type: type,
         showClose: true,
     })
-   
+
 }
 
 /**
@@ -93,9 +93,19 @@ const errorHandle = (status, other) => {
 var instance = axios.create({ timeout: 1000 * 10 });
 // 设置post请求头
 instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+function changeNetWorkStatus(boolean) {
+    boolean = boolean == undefined ? true : boolean;
+    const network = store.state.network;
+    console.log(network);
+    if (boolean && network === false) {
+        store.commit(parents.mutations.CHANGE_NETWORK, boolean);
+    }
+}
 /**
   * 请求拦截器
   * 每次请求前，如果存在token则在请求头中携带token
+  * 如果 当前 请求的 网络状态 是 未联网状态，请求的 时候默认为  联网
   */
 instance.interceptors.request.use(
     config => {
@@ -105,9 +115,13 @@ instance.interceptors.request.use(
         // 而后我们可以在响应拦截器中，根据状态码进行一些统一的操作。
         const token = store.state.token;
         token && (config.headers.Authorization = token);
+        changeNetWorkStatus();
         return config;
     },
-    error => Promise.error(error))
+    error => {
+        changeNetWorkStatus();
+        return Promise.error(error);
+    })
 
 // 响应拦截器
 instance.interceptors.response.use(
@@ -124,7 +138,7 @@ instance.interceptors.response.use(
         } else {
             let errorMess = error.toString().toLocaleLowerCase();
             // 对于断网的问题
-            switch(errorMess){
+            switch (errorMess) {
                 // 当前请求取消的时候
                 case 'cancel':
                     return Promise.reject(error);
