@@ -126,9 +126,14 @@ const routesNews = resultRoutes(config);
 
 /* 配置 首次进入 时 匹配的 从定向 */
 routesNews.unshift({
-  path: '*',
+  path: '/',
   redirect: '/home/1/1'
 });
+/* 这种方式会匹配 所有的 路由，在 动态 载入 路由时 会出问题 */
+/* routesNews.unshift({
+  path: '*',
+  redirect: '/home/1/1'
+}); */
 
 /* 断网的刷新页面 */
 routesNews.push({
