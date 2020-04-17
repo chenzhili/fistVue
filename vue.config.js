@@ -11,5 +11,13 @@ module.exports = {
                 // }
             }
         }
-    }
+    },
+    // 添加全局的 scss 变量
+    css: {
+        loaderOptions: {
+            sass: {
+                data: '@import "@/styles/variables.scss";'
+            }
+        }
+    },
 }
