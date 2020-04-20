@@ -19,8 +19,8 @@
       <h3>我没网了</h3>
       <el-button type="primary" @click="onRefresh">刷新</el-button>
     </div>
-
-    <router-link to="/home/1/2">Home</router-link>|
+    <!-- contextmenu 是 自带的鼠标右击 事件,但是不能 放入原生 DOM 中 -->
+    <router-link to="/home/1/2" @contextmenu.prevent.native="openMenu()">Home</router-link>|
     <router-link to="/about">About</router-link>|
     <router-link to="/test">test</router-link>
     <!-- <transition name="fade" mode="out-in">
@@ -46,6 +46,9 @@ export default {
   methods: {
     onRefresh() {
       this.$router.replace("/refresh");
+    },
+    openMenu () {
+      console.log('这尼玛');
     }
   },
   mounted() {

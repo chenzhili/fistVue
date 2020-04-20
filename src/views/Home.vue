@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld id="123" />
     <ul>
-      <li v-for="(item,key) of list" :key="key">{{item.low}}</li>
+      <li v-for="(item,key) of list" :key="key" class="test">{{item.low}}</li>
     </ul>
   </div>
 </template>
@@ -50,3 +50,8 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+  .test{
+    color:$primary-color;
+  }
+</style>

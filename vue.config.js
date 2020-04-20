@@ -12,11 +12,12 @@ module.exports = {
             }
         }
     },
+    // 这里有问题，不知道 缺少了啥，用途 是 混入 全局，在任何地方都能用的; 解决方式 这块 改了 写法 data 换为 prependData了
     // 添加全局的 scss 变量
     css: {
         loaderOptions: {
             sass: {
-                data: '@import "@/styles/variables.scss";'
+                prependData: '@import "@/styles/variable.scss";'
             }
         }
     },
