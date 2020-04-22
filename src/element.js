@@ -11,7 +11,7 @@ import {
     Submenu,
     MenuItem,
     MenuItemGroup,
-    Input,
+    
     InputNumber,
     Radio,
     RadioGroup,
@@ -25,8 +25,7 @@ import {
     OptionGroup,
     
     ButtonGroup,
-    Table,
-    TableColumn,
+    
     DatePicker,
     TimeSelect,
     TimePicker,
@@ -67,7 +66,7 @@ import {
     Footer,
     Timeline,
     TimelineItem,
-    Link,
+    
     Divider,
     Image,
     Calendar,
@@ -80,6 +79,10 @@ import {
     MessageBox,
     Loading,
     Message,
+    Table,
+    TableColumn,
+    Link,
+    Input,
 } from 'element-ui';
 
 /* Vue.use(Pagination);
@@ -92,7 +95,7 @@ Vue.use(Menu);
 Vue.use(Submenu);
 Vue.use(MenuItem);
 Vue.use(MenuItemGroup);
-Vue.use(Input);
+
 Vue.use(InputNumber);
 Vue.use(Radio);
 Vue.use(RadioGroup);
@@ -106,8 +109,7 @@ Vue.use(Option);
 Vue.use(OptionGroup);
 
 Vue.use(ButtonGroup);
-Vue.use(Table);
-Vue.use(TableColumn);
+
 Vue.use(DatePicker);
 Vue.use(TimeSelect);
 Vue.use(TimePicker);
@@ -148,7 +150,7 @@ Vue.use(Main);
 Vue.use(Footer);
 Vue.use(Timeline);
 Vue.use(TimelineItem);
-Vue.use(Link);
+
 Vue.use(Divider);
 Vue.use(Image);
 Vue.use(Calendar);
@@ -158,6 +160,11 @@ Vue.use(CascaderPanel); */
 console.log('执行');
 Vue.use(Button);
 Vue.use(Loading.directive);
+Vue.use(Table);
+Vue.use(TableColumn);
+Vue.use(Link);
+Vue.use(Input);
+
 function MessApi() { }
 MessApi.install = () => {
     Vue._message = Message;
