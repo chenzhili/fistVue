@@ -15,7 +15,7 @@ export default {
     },
     // post提交
     getList(params, cancelTokenIns) {
-        return http(methods.post, '/services', params, cancelTokenIns)
+        return http(methods.post, '/apis/services', params, cancelTokenIns)
     }
 }
 
