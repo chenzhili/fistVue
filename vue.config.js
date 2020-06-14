@@ -12,6 +12,11 @@ module.exports = {
                 pathRewrite: {   //重写路径 比如'/api/aaa/ccc'重写为'/aaa/ccc'
                     '^/apis': '/'
                 }
+                /* 对应 nginx 的 配置
+                    location /apis {
+                        proxy_pass http://112.19.171.231:1989/quotescenter/;
+        }
+                */
             }
         }
     },
