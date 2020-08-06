@@ -38,6 +38,7 @@ export default {
   },
   mounted() {
     // console.log(this);
+    // console.log('helloworld', this.$attrs);
   }
 };
 </script>

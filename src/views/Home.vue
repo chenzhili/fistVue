@@ -5,6 +5,37 @@
       src="../assets/logo.png"
     />
     <HelloWorld id="123" />
+    <h1><strong>重构 table 标签</strong></h1>
+    <TableComRep
+      :tableData="tableData"
+      :tableHeader="tableHeaderRep"
+      :style="{marginBottom: '5em'}"
+    >
+      <template #coop="{scope}">
+        <el-link
+          type="primary"
+          @click="pub(scope.$index, scope.row)"
+        >发布采购任务</el-link>
+      </template>
+      <template #mControl="{scope}">
+        <div
+          v-if="!scope.row[scope.column.property].edit"
+          @dblclick="handle(scope.$index, scope.column.property, true)"
+        >{{scope.row[scope.column.property].value?scope.row[scope.column.property].value:'编辑'}}</div>
+        <el-input
+          @blur="handle(scope.$index, scope.column.property, false)"
+          :autofocus="true"
+          v-else
+          type="primary"
+        ></el-input>
+      </template>
+      <!-- 多级表头的 插槽 -->
+      <template #multiple="{scope}">
+        <div v-if="scope.column.property === 'test2'">
+          {{scope.column.property}}
+        </div>
+      </template>
+    </TableComRep>
     <!-- <ul>
       <li v-for="(item,key) of list" :key="key" class="test">{{item.low}}</li>
     </ul> -->
@@ -51,7 +82,32 @@
 // @ is an alias to /src
 import tableCom from '@/components/TableCom/index'
 import HelloWorld from "@/components/HelloWorld.vue";
+import TableComRep from '@/components/TableComRep/index'
 
+/* 重构后的 tableHeaderRep 的 数据结构 */
+const tableHeaderRep = [
+  { attrs: { prop: '', label: '', type: 'selection', width: '50', align: 'center' } },
+  { attrs: { prop: 'number', label: '采购包编号' } },
+  { attrs: { prop: 'name', label: '采购包名称' } },
+  { attrs: { prop: 'desc', label: '采购包概述' } },
+  { attrs: { prop: 'user', label: '发起人' } },
+  { attrs: { prop: 'createTime', label: '生成时间' } },
+  { attrs: { prop: 'modifyTime', label: '变更时间' } },
+  { attrs: { prop: 'status', label: '采购包状态' } },
+  { attrs: { prop: 'coop', label: '操作' }, custom: true },
+  { attrs: { label: '单项控制价', prop: 'mControl' }, custom: true },
+  {
+    attrs: { prop: 'test', label: 'test' },
+    children: [
+      {
+        attrs: { prop: 'test1', label: 'test1' },
+        children: [
+          { attrs: { prop: 'test2', label: 'test2' }, custom: true }
+        ]
+      }
+    ]
+  }
+]
 const tableHeader = [
   { prop: '', label: '', type: 'selection' },
   { prop: 'number', label: '采购包编号' },
@@ -85,14 +141,16 @@ export default {
   name: "Home",
   components: {
     HelloWorld,
-    tableCom
+    tableCom,
+    TableComRep
   },
   data () {
     return {
       test: "test",
       list: [],
       tableHeader,
-      tableData
+      tableData,
+      tableHeaderRep
     };
   },
   methods: {
