@@ -1,9 +1,7 @@
 <template>
   <div class="home">
-    <img
-      alt="Vue logo"
-      src="../assets/logo.png"
-    />
+    <h1>自构form表单的封装</h1>
+    <FormCom/>
     <HelloWorld id="123" />
     <h1><strong>重构 table 标签</strong></h1>
     <TableComRep
@@ -83,6 +81,7 @@
 import tableCom from '@/components/TableCom/index'
 import HelloWorld from "@/components/HelloWorld.vue";
 import TableComRep from '@/components/TableComRep/index'
+import FormCom from '@/components/FormCom/index'
 
 /* 重构后的 tableHeaderRep 的 数据结构 */
 const tableHeaderRep = [
@@ -142,7 +141,8 @@ export default {
   components: {
     HelloWorld,
     tableCom,
-    TableComRep
+    TableComRep,
+    FormCom
   },
   data () {
     return {

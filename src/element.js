@@ -12,7 +12,7 @@ import {
     MenuItem,
     MenuItemGroup,
     
-    InputNumber,
+    
     Radio,
     RadioGroup,
     RadioButton,
@@ -26,15 +26,14 @@ import {
     
     ButtonGroup,
     
-    DatePicker,
+    
     TimeSelect,
     TimePicker,
     Popover,
     Tooltip,
     Breadcrumb,
     BreadcrumbItem,
-    Form,
-    FormItem,
+    
     Tabs,
     TabPane,
     Tag,
@@ -83,6 +82,10 @@ import {
     TableColumn,
     Link,
     Input,
+    Form,
+    FormItem,
+    DatePicker,
+    InputNumber,
 } from 'element-ui';
 
 /* Vue.use(Pagination);
@@ -96,7 +99,7 @@ Vue.use(Submenu);
 Vue.use(MenuItem);
 Vue.use(MenuItemGroup);
 
-Vue.use(InputNumber);
+
 Vue.use(Radio);
 Vue.use(RadioGroup);
 Vue.use(RadioButton);
@@ -110,15 +113,14 @@ Vue.use(OptionGroup);
 
 Vue.use(ButtonGroup);
 
-Vue.use(DatePicker);
+
 Vue.use(TimeSelect);
 Vue.use(TimePicker);
 Vue.use(Popover);
 Vue.use(Tooltip);
 Vue.use(Breadcrumb);
 Vue.use(BreadcrumbItem);
-Vue.use(Form);
-Vue.use(FormItem);
+
 Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Tag);
@@ -164,6 +166,10 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Link);
 Vue.use(Input);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use(DatePicker);
+Vue.use(InputNumber);
 
 function MessApi() { }
 MessApi.install = () => {
