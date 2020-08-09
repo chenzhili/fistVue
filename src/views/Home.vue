@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>自构form表单的封装</h1>
-    <FormCom/>
+    <FormCom :formItems="formItems" />
     <HelloWorld id="123" />
     <h1><strong>重构 table 标签</strong></h1>
     <TableComRep
@@ -83,6 +83,41 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import TableComRep from '@/components/TableComRep/index'
 import FormCom from '@/components/FormCom/index'
 
+/* formCom 的 参数 */
+/* 还未测试 完全 */
+const formItems = [
+  {
+    component: 'input',
+    itemAttrs: {
+      label: '第一个input'
+    },
+    attrs: {
+      key: 'first',
+      value: '初始值'
+    }
+  },
+  {
+    component: 'select',
+    itemAttrs: {
+      label: '第一个select'
+    },
+    attrs: {
+      key: 'second',
+      value: '',
+      options: [{
+        value: '选项1',
+        label: '黄金糕'
+      }, {
+        value: '选项2',
+        label: '双皮奶'
+      }, {
+        value: '选项3',
+        label: '蚵仔煎'
+      }]
+    }
+  }
+]
+
 /* 重构后的 tableHeaderRep 的 数据结构 */
 const tableHeaderRep = [
   { attrs: { prop: '', label: '', type: 'selection', width: '50', align: 'center' } },
@@ -150,7 +185,8 @@ export default {
       list: [],
       tableHeader,
       tableData,
-      tableHeaderRep
+      tableHeaderRep,
+      formItems
     };
   },
   methods: {

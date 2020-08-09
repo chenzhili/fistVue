@@ -20,9 +20,8 @@ import {
     CheckboxButton,
     CheckboxGroup,
     Switch,
-    Select,
-    Option,
-    OptionGroup,
+    
+    
     
     ButtonGroup,
     
@@ -86,6 +85,9 @@ import {
     FormItem,
     DatePicker,
     InputNumber,
+    Select,
+    Option,
+    OptionGroup,
 } from 'element-ui';
 
 /* Vue.use(Pagination);
@@ -107,9 +109,8 @@ Vue.use(Checkbox);
 Vue.use(CheckboxButton);
 Vue.use(CheckboxGroup);
 Vue.use(Switch);
-Vue.use(Select);
-Vue.use(Option);
-Vue.use(OptionGroup);
+
+
 
 Vue.use(ButtonGroup);
 
@@ -170,6 +171,9 @@ Vue.use(Form);
 Vue.use(FormItem);
 Vue.use(DatePicker);
 Vue.use(InputNumber);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(OptionGroup);
 
 function MessApi() { }
 MessApi.install = () => {
