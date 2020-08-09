@@ -16,9 +16,7 @@ import {
     Radio,
     RadioGroup,
     RadioButton,
-    Checkbox,
-    CheckboxButton,
-    CheckboxGroup,
+   
     Switch,
     
     
@@ -88,6 +86,9 @@ import {
     Select,
     Option,
     OptionGroup,
+    Checkbox,
+    CheckboxButton,
+    CheckboxGroup,
 } from 'element-ui';
 
 /* Vue.use(Pagination);
@@ -105,9 +106,7 @@ Vue.use(MenuItemGroup);
 Vue.use(Radio);
 Vue.use(RadioGroup);
 Vue.use(RadioButton);
-Vue.use(Checkbox);
-Vue.use(CheckboxButton);
-Vue.use(CheckboxGroup);
+
 Vue.use(Switch);
 
 
@@ -174,6 +173,9 @@ Vue.use(InputNumber);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(OptionGroup);
+Vue.use(Checkbox);
+Vue.use(CheckboxButton);
+Vue.use(CheckboxGroup);
 
 function MessApi() { }
 MessApi.install = () => {

@@ -27,7 +27,8 @@ export default {
     
   },
   mounted () {
-    console.log(this.$attrs);
+    /* 这里证明 在 引用组件上 使用 v-model，会给 当前的 组件加上对应 的 prop 和 input 事件 */
+    console.log(this.$listeners);
   },
   props: {
     value: {

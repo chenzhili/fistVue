@@ -85,8 +85,8 @@ export default {
   name: 'FormCom',
   components: {
     // 顺便测试下 异步加载 组件
-    CCheckbox: import('./CCheckbox'),
-    CRadio: import('./CRadio'),
+    CCheckbox: () => import('./CCheckbox'),
+    CRadio: () => import('./CRadio'),
     CSelect: () => import('./CSelect')
   },
   data () {
