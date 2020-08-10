@@ -13,19 +13,17 @@ import {
     MenuItemGroup,
     
     
-    Radio,
-    RadioGroup,
+    
     RadioButton,
    
-    Switch,
+    
     
     
     
     ButtonGroup,
     
     
-    TimeSelect,
-    TimePicker,
+    
     Popover,
     Tooltip,
     Breadcrumb,
@@ -89,6 +87,11 @@ import {
     Checkbox,
     CheckboxButton,
     CheckboxGroup,
+    TimeSelect,
+    TimePicker,
+    Switch,
+    Radio,
+    RadioGroup,
 } from 'element-ui';
 
 /* Vue.use(Pagination);
@@ -103,19 +106,17 @@ Vue.use(MenuItem);
 Vue.use(MenuItemGroup);
 
 
-Vue.use(Radio);
-Vue.use(RadioGroup);
+
 Vue.use(RadioButton);
 
-Vue.use(Switch);
+
 
 
 
 Vue.use(ButtonGroup);
 
 
-Vue.use(TimeSelect);
-Vue.use(TimePicker);
+
 Vue.use(Popover);
 Vue.use(Tooltip);
 Vue.use(Breadcrumb);
@@ -176,6 +177,11 @@ Vue.use(OptionGroup);
 Vue.use(Checkbox);
 Vue.use(CheckboxButton);
 Vue.use(CheckboxGroup);
+Vue.use(TimeSelect);
+Vue.use(TimePicker);
+Vue.use(Switch);
+Vue.use(Radio);
+Vue.use(RadioGroup);
 
 function MessApi() { }
 MessApi.install = () => {

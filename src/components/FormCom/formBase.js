@@ -37,6 +37,12 @@ export default {
     }
   },
   checkbox: {
+    component: 'el-checkbox',
+    attrs: {
+      placeholder: '请输入'
+    }
+  },
+  checkboxGroup: {
     component: 'c-checkbox',
     attrs: {
       placeholder: '请输入',
@@ -49,5 +55,5 @@ export default {
     attrs: {
       placeholder: '请输入',
     }
-  },
+  }
 }

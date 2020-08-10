@@ -25,10 +25,10 @@ export default {
   },
   props: {
     value: {
-      require: true
+      required: true
     },
     options: {
-      require: true,
+      required: true,
       type: Array
     }
   }

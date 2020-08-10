@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>自构form表单的封装</h1>
-    <FormCom :formItems="formItems" />
+    <FormCom :formItems="formItems" :coopBtns="coopBtns" />
     <HelloWorld id="123" />
     <h1><strong>重构 table 标签</strong></h1>
     <TableComRep
@@ -84,7 +84,6 @@ import TableComRep from '@/components/TableComRep/index'
 import FormCom from '@/components/FormCom/index'
 
 /* formCom 的 参数 */
-/* 还未测试 完全 */
 const formItems = [
   {
     component: 'input',
@@ -97,12 +96,22 @@ const formItems = [
     }
   },
   {
+    component: 'inputNumber',
+    itemAttrs: {
+      label: '第一个inputNumber'
+    },
+    attrs: {
+      key: 'second',
+      value: 2
+    }
+  },
+  {
     component: 'select',
     itemAttrs: {
       label: '第一个select'
     },
     attrs: {
-      key: 'second',
+      key: 'thrid',
       value: '',
       options: [{
         value: '选项1',
@@ -115,6 +124,107 @@ const formItems = [
         label: '蚵仔煎'
       }]
     }
+  },
+  {
+    component: 'datePicker',
+    itemAttrs: {
+      label: '第一个datePicker'
+    },
+    attrs: {
+      key: 'forth',
+      value: ''
+    }
+  },
+  {
+    component: 'timePicker',
+    itemAttrs: {
+      label: '第一个timePicker'
+    },
+    attrs: {
+      key: 'fifth',
+      value: ''
+    }
+  },
+  {
+    component: 'switch',
+    itemAttrs: {
+      label: '第一个switch'
+    },
+    attrs: {
+      key: 'sixth',
+      value: ''
+    }
+  },
+  {
+    component: 'checkbox',
+    itemAttrs: {
+      label: '第一个checkbox'
+    },
+    attrs: {
+      key: 'seventh',
+      value: '',
+      label: '复选框'
+    }
+  },
+  {
+    component: 'checkboxGroup',
+    itemAttrs: {
+      label: '第一个checkboxGroup'
+    },
+    attrs: {
+      key: 'eighth',
+      value: [],
+      options: [{
+        label: '黄金糕'
+      }, {
+        label: '双皮奶'
+      }, {
+        label: '蚵仔煎'
+      }]
+    }
+  },
+  {
+    component: 'radio',
+    itemAttrs: {
+      label: '第一个radio'
+    },
+    attrs: {
+      key: 'nighth',
+      value: [],
+      options: [{
+        value: '选项1',
+        label: '黄金糕'
+      }, {
+        value: '选项2',
+        label: '双皮奶'
+      }, {
+        value: '选项3',
+        label: '蚵仔煎'
+      }]
+    }
+  }
+]
+
+const coopBtns = [
+  {
+    attrs: {
+      plain: true,
+      type: 'error'
+    },
+    // 自定义方法
+    type: 'custom',
+    text: '搜索',
+    method () {
+      console.log('执行了 method');
+    }
+  },
+  {
+    attrs: {
+      plain: true,
+      type: 'primary'
+    },
+    type: 'reset',
+    text: '重置'
   }
 ]
 
@@ -186,7 +296,8 @@ export default {
       tableHeader,
       tableData,
       tableHeaderRep,
-      formItems
+      formItems,
+      coopBtns
     };
   },
   methods: {

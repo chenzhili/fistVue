@@ -1,11 +1,12 @@
 <template>
   <el-form
-    :ref="name || 'formRef'"
+    :ref="name"
     :model="model"
     v-bind="setFormProp"
     v-on="$listeners"
   >
     <el-form-item
+      :style="{width: '33vw'}"
       v-for="(item, index) in _formItems"
       :key="index"
       v-bind="item.itemAttrs"
@@ -25,8 +26,9 @@
         v-model="model[item.attrs.key]"
       ></component>
     </el-form-item>
-    <el-form-item>
-      <el-button @click="test">test</el-button>
+    <el-form-item v-if="!!coopBtns.length">
+      <!-- 可能 需要 component 内置组件 做 el-link 和 el-button 的区别，现在没必要 -->
+      <el-button v-for="(btn, index) in coopBtns" :key="index" v-bind="btn.attrs" @click.prevent="coop(btn)">{{btn.text}}</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -35,10 +37,10 @@
   设计大致分为以下几个部分
 
   表单配置项设计
-  表单验证
-  表单请求
-  表单控件之间的联动
-  调用后端接口生成表单控件的选项 
+  表单验证 --->  沿用 element-ui 一致的 prop 的 rules 就可以了
+  表单请求 --->  这个 请求 不在 内部完成
+  表单控件之间的联动  ---> 就在 computed 中 多一层 劫持 function 就可以了
+  调用后端接口生成表单控件的选项 ---> 这个 在组件外层组装完成就可以了
 */
 /* 
   运用到的 知识点： 对于 vue 内置组件 component 的 用法
@@ -126,18 +128,37 @@ export default {
       formItem.attrs = Object.assign({}, baseItem.attrs, formItem.attrs);
       return formItem
     },
-    test () {
-      console.log(this.model);
+    /* 按钮操作 */
+    coop (btn) {
+      if (!btn.type) return;
+      switch (btn.type) {
+        case 'custom':
+          btn.method instanceof Function && btn.method();
+          break;
+        case 'reset':
+          this.$refs[this.name].resetFields();
+      }
     }
   },
   props: {
+    /* 表单项 */
     formItems: {
-      require: true,
+      required: true,
       type: Array
+    },
+    /* 表单操作项 */
+    coopBtns: {
+      type: Array,
+      default () {
+        return []
+      }
     },
     /* ref 的名称 */
     name: {
-      type: String
+      type: String,
+      default () {
+        return 'formRef'
+      }
     }
   }
 }
