@@ -1,6 +1,6 @@
 <template>
   <el-table
-    v-bind="setColumnAttrs($attrs)"
+    v-bind="setTableAttrs($attrs)"
     v-on="$listeners"
     :data="tableData"
   >
@@ -99,7 +99,7 @@ export default {
       ref="tableRef"
     */
     setTableAttrs (attrs) {
-      return (attrs) => (Object.assign({}, { ref: 'tableRef', style: { width: '100%' } }, attrs))
+      return (attrs) => (Object.assign({}, { ref: 'tableRef', border: true, style: { width: '100%' } }, attrs))
     }
   },
   mounted () {
