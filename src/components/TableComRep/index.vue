@@ -39,7 +39,7 @@
               ></slot>
             </template>
             <template v-else>
-              {{column.attrs.label}}
+              {{scope.row[column.attrs.prop]}}
             </template>
           </template>
         </el-table-column>

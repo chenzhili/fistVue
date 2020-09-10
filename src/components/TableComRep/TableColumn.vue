@@ -26,7 +26,7 @@
               ></slot>
             </template>
             <template v-else>
-              {{column.attrs.label}}
+              {{scope.scope.row[column.attrs.prop]}}
             </template>
           </template>
         </el-table-column>
