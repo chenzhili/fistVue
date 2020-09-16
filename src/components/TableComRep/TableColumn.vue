@@ -18,6 +18,20 @@
           :key="column.attrs.prop"
           v-bind="setColumnAttrs(column.attrs)"
         >
+          <template
+            slot="header"
+            slot-scope="scope"
+          >
+            <template v-if="column.customHeader">
+              <slot
+                :name="`${column.attrs.prop}Header`"
+                :scope="scope"
+              ></slot>
+            </template>
+            <template v-else>
+              <span>{{column.attrs.label}}</span>
+            </template>
+          </template>
           <template slot-scope="scope">
             <template v-if="column.custom === true">
               <slot

@@ -29,6 +29,20 @@
           v-else
           v-bind="setColumnAttrs(column.attrs)"
         >
+          <template
+            slot="header"
+            slot-scope="scope"
+          >
+            <template v-if="column.customHeader">
+              <slot
+                :name="`${column.attrs.prop}Header`"
+                :scope="scope"
+              ></slot>
+            </template>
+            <template v-else>
+              <span>{{column.attrs.label}}</span>
+            </template>
+          </template>
           <!-- 由于不能在 slot 之前 做 v-if 所以 我把 默认 body-cell 都重写了 -->
           <template slot-scope="scope">
             <!-- <template slot-scope="scope"> 这句话 是 body-cell（el-table 暴露的） 的 默认 插槽 -->
