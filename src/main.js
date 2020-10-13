@@ -12,6 +12,9 @@ import store from './store'
 // import reqMixin from './request/reqMixin'
 import './request/reqMixin';
 
+/* 全局 注册 指令 */
+import '@/directives/index'
+
 // 全局 注册 的 自定义组件
 import './components/index'
 
