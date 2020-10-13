@@ -7,6 +7,7 @@
       v-bind:uniqueKey="uuid"
       :ratio="16/9"
       v-bind:imgUrl="currentImage"
+      @hook:mounted="makerMounted"
     ></ui-marker>
   </div>
 </template>
@@ -27,7 +28,6 @@
   形成曲面：曲面需要两个自变量，一个因变量，且三个变量的数据均须为矩阵，不能为单列或者单行的数组。这句话没理解到
  */
 import { AIMarker } from "vue-picture-bd-marker";
-console.log(AIMarker);
 export default {
   components: { "ui-marker": AIMarker },
   data() {
@@ -43,6 +43,10 @@ export default {
       currentImage: require('../assets/logo.png')
     };
   },
-  methods: {}
+  methods: {
+    makerMounted () {
+      console.log('UIMaker的mounted挂载')
+    }
+  }
 };
 </script>
