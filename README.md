@@ -45,7 +45,6 @@
 ```
 ```
 
-<!-- 这个 在 2.0 以上 已经作废了 -->
 3、实际场景：就是现在 在做 模态的时候 需要，把 parent 的 visible 参数 作为 child 组件的值，控制 隐藏显示；vue 为了 数据的 一致性 不能 在 child 中 修改 visible；
 
 ```js
@@ -59,7 +58,9 @@ this.$emit('update:visible', false);
 <!-- 注意：带有 .sync 修饰符的 v-bind 不能和表达式一起使用 (例如 v-bind:title.sync=”doc.title + ‘!’” 是无效的)。取而代之的是，你只能提供你想要绑定的 property 名，类似 v-model -->
 ```js
 // parent
-<child :visible.sync="visible"></child>
+<child :visible.sync="visible"></child>  /*  等价于  */ <child :visible="visible" @update:visible="val => visible = val"></child>
+// child
+this.$emit('update:visible', false)
 ```
 
 4、用 Object.freeze 来 较少 vue 的 对于 data 数据 响应式的 遍历 监听；
