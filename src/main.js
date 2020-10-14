@@ -27,6 +27,11 @@ async function test () {
   
 }
 
+/* 测试 stock-market-graph 包的 可用性 */
+import QLStockMarket from 'stock-market-graph'
+
+console.dir(QLStockMarket);
+
 Vue.config.productionTip = false
 
 new Vue({
