@@ -4908,9 +4908,9 @@ hex-color-regex@^1.1.0:
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
 
 highlight.js@^9.6.0:
-  version "9.18.1"
-  resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.18.1.tgz?cache=0&sync_timestamp=1583833558650&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhighlight.js%2Fdownload%2Fhighlight.js-9.18.1.tgz#ed21aa001fe6252bb10a3d76d47573c6539fe13c"
-  integrity sha1-7SGqAB/mJSuxCj121HVzxlOf4Tw=
+  version "9.18.5"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.18.5.tgz#d18a359867f378c138d6819edfc2a8acd5f29825"
+  integrity sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
@@ -9351,24 +9351,6 @@ stock-market-graph@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/stock-market-graph/-/stock-market-graph-1.0.0.tgz#716b4e47e2688aafa5738731c73150abbc06530f"
   integrity sha512-+bCGxuNsEfoc6ZP5PuOLl/dZ4r/4n8Oq8zU7Dlif3wIZDADL94pKA5PXOiSyyveF7XUm3avuJ/PT/fhyAVgIoA==
-  dependencies:
-    hammerjs "^2.0.8"
-    jquery "^3.4.1"
-    lodash "^4.17.15"
-    react "^16.10.2"
-    react-dom "^16.10.2"
-    vue "^2.6.10"
-
-"stock-market1@file:../../../stockMarket":
-  version "1.0.0"
-  dependencies:
-    hammerjs "^2.0.8"
-    jquery "^3.4.1"
-    lodash "^4.17.15"
-    vue "^2.6.10"
-
-"stock-market@file:../../stockMarket":
-  version "1.0.0"
   dependencies:
     hammerjs "^2.0.8"
     jquery "^3.4.1"
